@@ -160,23 +160,24 @@ const HomePageForm = (props) => {
 
             <div className="col-12 text-center">
               <Button
-                className={classes.btn + " mt-3 col-6"}
+                className={classes.btn + " mt-3 col-10 col-lg-5"}
                 color="success"
                 type="submit"
-                //   disabled={
-                //     formik.errors.name ||
-                //     formik.errors.city ||
-                //     formik.errors.message ||
-                //     formik.errors.attachment
-                //       ? false
-                //       : true
-                //   }
               >
                 Submit
               </Button>
             </div>
           </div>
         </Form>
+        <div className="text-center">
+          <Button
+            color="danger"
+            className={classes.btn + " mt-3 mx-auto col-10 col-lg-5"}
+            onClick={() => props.logoutClicked()}
+          >
+            Logout
+          </Button>
+        </div>
       </div>
     </React.Fragment>
   );

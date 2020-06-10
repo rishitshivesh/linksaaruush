@@ -7,32 +7,46 @@ import Event from "../../components/Event/Event";
 import Section from "../../components/Section/Section";
 
 class Events extends Component {
-  state = {
-    competitions: [],
-    certificates: [],
-    webinars: [],
-    workshops: [],
-  };
+  constructor() {
+    super();
+    this.state = {
+      certificates: [],
+      workshops: [],
+      webinars: [],
+      competitions: [],
+    };
+  }
 
   componentWillMount() {
+    let token = localStorage.getItem("authToken");
     setInterval(() => {
       axios
-        .all([
-          axios.get("http://localhost:4200/api/certificate/get"),
-          axios.get("http://localhost:4200/api/workshop/get"),
-          axios.get("http://localhost:4200/api/webinar/get"),
-          axios.get("http://localhost:4200/api/competition/get"),
-        ])
-        .then((res) => {
-          this.setState({
-            certificates: res[0].data.data.reverse(),
-            workshops: res[1].data.data.reverse(),
-            webinars: res[2].data.data.reverse(),
-            competitions: res[3].data.data.reverse(),
-          });
+        .get("/api/competition/get", {
+          headers: { Authorization: `Bearer ${token}` },
         })
-        .catch((err) => {
-          console.log(err);
+        .then((res) => {
+          this.setState({ competitions: res.data.data.reverse() });
+        });
+      axios
+        .get("/api/certificate/get", {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((res) => {
+          this.setState({ certificates: res.data.data.reverse() });
+        });
+      axios
+        .get("/api/webinar/get", {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((res) => {
+          this.setState({ webinars: res.data.data.reverse() });
+        });
+      axios
+        .get("/api/workshop/get", {
+          headers: { Authorization: `Bearer ${token}` },
+        })
+        .then((res) => {
+          this.setState({ workshops: res.data.data.reverse() });
         });
     }, 500);
   }
@@ -56,7 +70,7 @@ class Events extends Component {
                     image={competition.imageUrl}
                     click={competition.link}
                   />
-                  {window.location.pathname === "/admin-panel" ? (
+                  {window.location.pathname === "/admin/panel" ? (
                     <Button
                       className="col-12 mb-4"
                       color="danger"
@@ -85,7 +99,7 @@ class Events extends Component {
                     image={certificate.imageUrl}
                     click={certificate.link}
                   />
-                  {window.location.pathname === "/admin-panel" ? (
+                  {window.location.pathname === "/admin/panel" ? (
                     <Button
                       className="col-12 mb-4"
                       color="danger"
@@ -116,7 +130,7 @@ class Events extends Component {
                     image={webinar.imageUrl}
                     click={webinar.link}
                   />
-                  {window.location.pathname === "/admin-panel" ? (
+                  {window.location.pathname === "/admin/panel" ? (
                     <Button
                       className="col-12 mb-4"
                       color="danger"
@@ -143,7 +157,7 @@ class Events extends Component {
                     image={workshop.imageUrl}
                     click={workshop.link}
                   />
-                  {window.location.pathname === "/admin-panel" ? (
+                  {window.location.pathname === "/admin/panel" ? (
                     <Button
                       className="col-12 mb-4"
                       color="danger"
