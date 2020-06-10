@@ -23,7 +23,8 @@ class AdminPanel extends Component {
 
     axios
       .post(`/api/${data.category}/add`, finalData)
-      .then((res) => console.log(res));
+      .then((res) => console.log(res))
+      .catch((err) => console.log(err));
   }
 
   render() {

@@ -5,6 +5,7 @@ import "./App.css";
 import Header from "./components/Header/Header";
 import Events from "./containers/Events/Events";
 import AdminPanel from "./containers/AdminPanel/AdminPanel";
+import LogIn from "./containers/LogIn/LogIn";
 
 class App extends Component {
   render() {
@@ -13,7 +14,8 @@ class App extends Component {
         <Header />
         <Switch>
           <div style={{ position: "relative", minHeight: "100vh" }}>
-            <Route path="/admin-panel" component={AdminPanel} exact />
+            <Route path="/admin/login" component={LogIn} exact />
+            <Route path="/admin/panel" component={AdminPanel} exact />
             <Route path="/" component={Events} exact />
           </div>
         </Switch>

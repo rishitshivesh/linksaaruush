@@ -29,14 +29,9 @@ const HomePageForm = (props) => {
           "Unsupported Format",
           (value) =>
             value &&
-            [
-              "image/jpg",
-              "image/jpeg",
-              "image/png",
-              "image/svg+xml",
-              "video/mp4",
-              "video/x-msvideo",
-            ].includes(value.type)
+            ["image/jpg", "image/jpeg", "image/png", "image/svg+xml"].includes(
+              value.type
+            )
         ),
       category: Yup.string().required(
         "Please choose a category to list the event in"
