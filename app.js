@@ -21,10 +21,9 @@ if (process.env.NODE_ENV === "maintainance") {
     res.sendStatus(503);
   });
 } else if (process.env.NODE_ENV === "development") {
-  // app.use(cors(corsOptions));
+  app.use(cors(corsOptions));
 }
 
-app.use(cors());
 app.use("/api", linkRoutes);
 
 if (process.env.NODE_ENV === "production") {
