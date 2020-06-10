@@ -12,6 +12,7 @@ const app = express();
 const { handleErrors } = require("./helpers/errorHandler");
 
 const { linkRoutes } = require("./routes/links");
+const { adminRoutes } = require("./routes/admin");
 
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
@@ -25,6 +26,7 @@ if (process.env.NODE_ENV === "maintainance") {
 }
 
 app.use("/api", linkRoutes);
+app.use("/api/admin", adminRoutes);
 
 if (process.env.NODE_ENV === "production") {
   express.static(path.join(__dirname, "client", "build"));
