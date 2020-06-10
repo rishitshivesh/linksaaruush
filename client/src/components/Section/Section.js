@@ -8,10 +8,10 @@ const Section = (props) => {
           <img
             src={props.img}
             alt={props.name}
-            width="30px"
+            width="40px"
             style={{ paddingBottom: "10px", marginRight: "10px" }}
           />
-          <h1>{props.name}</h1>
+          <h2>{props.name}</h2>
         </div>
         <div className="col-10 mx-auto">{props.children}</div>
       </div>
