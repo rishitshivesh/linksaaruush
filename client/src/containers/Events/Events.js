@@ -10,12 +10,24 @@ class Events extends Component {
     competitions: [],
     certificates: [],
     webinars: [],
-    Workshops: [],
+    workshops: [],
   };
 
   componentWillMount() {
+    axios.get("/api/competition/get").then((res) => {
+      this.setState({ competitions: res.data.data });
+      console.log(res.data.data);
+    });
     axios.get("/api/certificate/get").then((res) => {
       this.setState({ certificates: res.data.data });
+      console.log(res.data.data);
+    });
+    axios.get("/api/webinar/get").then((res) => {
+      this.setState({ webinars: res.data.data });
+      console.log(res.data.data);
+    });
+    axios.get("/api/workshop/get").then((res) => {
+      this.setState({ workshops: res.data.data });
       console.log(res.data.data);
     });
   }
@@ -30,9 +42,15 @@ class Events extends Component {
               name="Competitions"
               className={classes.competitions}
             >
-              <Event name="Hi" description="woo" />
-              <Event name="Hi" description="woo" />
-              <Event name="Hi" description="woo" />
+              {this.state.competitions.map((competition) => (
+                <Event
+                  key={competition._id}
+                  name={competition.heading}
+                  description={competition.description}
+                  image={competition.imageUrl}
+                  click={competition.link}
+                />
+              ))}
             </Section>
             <Section
               img="https://image.flaticon.com/icons/svg/2912/2912780.svg"
@@ -56,18 +74,30 @@ class Events extends Component {
               name="Webinars"
               className={classes.webinars}
             >
-              <Event name="Hi" description="woo" />
-              <Event name="Hi" description="woo" />
-              <Event name="Hi" description="woo" />
+              {this.state.webinars.map((webinar) => (
+                <Event
+                  key={webinar._id}
+                  name={webinar.heading}
+                  description={webinar.description}
+                  image={webinar.imageUrl}
+                  click={webinar.link}
+                />
+              ))}
             </Section>
             <Section
               img="https://image.flaticon.com/icons/svg/3003/3003246.svg"
               name="Workshops"
               className={classes.workshops}
             >
-              <Event name="Hi" description="woo" />
-              <Event name="Hi" description="woo" />
-              <Event name="Hi" description="woo" />
+              {this.state.workshops.map((workshop) => (
+                <Event
+                  key={workshop._id}
+                  name={workshop.heading}
+                  description={workshop.description}
+                  image={workshop.imageUrl}
+                  click={workshop.link}
+                />
+              ))}
             </Section>
           </div>
         </div>

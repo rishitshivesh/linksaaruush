@@ -6,13 +6,22 @@ a {
   color: #232323;
   transition: all 0.3s ease-out !important;
 }
+a img {
+  border-radius: 10px;
+}
+a h3 {
+  font-size: 28px;
+  font-weight: 700;
+}
+a p {
+  font-size: 16px;
+}
+
 a:hover {
   color: #232323;
   text-decoration: none;
 }
-
 a:hover h3 {
   transition: all 0.3s ease-out !important;
-  font-weight: 300;
   letter-spacing: 1.1px;
 }
