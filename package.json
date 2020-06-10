@@ -1,0 +1,36 @@
+{
+  "name": "aaruush-linktree",
+  "version": "1.0.0",
+  "description": "An Linktree Adaptation for Aaruush",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/team-envision/aaruush-linktree.git"
+  },
+  "author": "Yashvardhan Jagnani, Gita Alekhya Paul",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/team-envision/aaruush-linktree/issues"
+  },
+  "homepage": "https://github.com/team-envision/aaruush-linktree#readme",
+  "dependencies": {
+    "aws-sdk": "^2.693.0",
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.18",
+    "multer": "^1.4.2",
+    "multer-s3": "^2.9.0",
+    "uuid": "^8.1.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}
