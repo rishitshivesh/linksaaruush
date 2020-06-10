@@ -18,11 +18,6 @@ const { ErrorHandler } = require("../helpers/errorHandler");
 const addLink = async (req, res, next) => {
   try {
     const linkType = req.params.linkType;
-    if (
-      !["workshop", "certificate", "webinar", "competition"].includes(linkType)
-    ) {
-      throw new ErrorHandler(404, "Page Not Found");
-    }
 
     const linkUrl = req.body.link;
     const linkImageUrl = req.file.location;
@@ -69,11 +64,6 @@ const addLink = async (req, res, next) => {
 const deleteLink = async (req, res, next) => {
   try {
     const linkType = req.params.linkType;
-    if (
-      !["workshop", "certificate", "webinar", "competition"].includes(linkType)
-    ) {
-      throw new ErrorHandler(404, "Page Not Found");
-    }
 
     const linkId = req.body.id;
 

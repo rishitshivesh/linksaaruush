@@ -8,6 +8,14 @@ const { promisify } = require("util");
 
 const verifyUser = async (req, res, next) => {
   try {
+    if (
+      !["workshop", "certificate", "webinar", "competition"].includes(
+        req.params.linkType
+      )
+    ) {
+      throw new ErrorHandler(404, "Page Not Found");
+    }
+
     if (!/^Bearer .+$/.test(req.get("authorization"))) {
       throw new ErrorHandler(403, "Login Credentials Invalid");
     }
