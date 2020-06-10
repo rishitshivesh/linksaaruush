@@ -1,11 +1,13 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { createBrowserHistory } from "history";
 
 import AdminEvents from "../Events/Events";
 import AdminPanelInput from "../../components/AdminPanelInput/AdminPanelInput";
 
 class AdminPanel extends Component {
   deleteEvent(id, linktype) {
+    let history = createBrowserHistory();
     let token = localStorage.getItem("authToken");
     axios
       .post(
@@ -16,7 +18,19 @@ class AdminPanel extends Component {
       .then((res) => {
         alert("Event deleted");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        if (err.response.status === 403) {
+          alert("Login again please");
+          history.go("admin/login");
+        } else if (err.response.status === 500) {
+          alert("Try again after some time");
+          history.go("admin/login");
+        } else if (err.response.status === 400) {
+          alert("Missing Parameters");
+        } else if (err.response.status === 404) {
+          alert("Link Not Found");
+        }
+      });
   }
 
   addEvent(data) {
@@ -34,7 +48,13 @@ class AdminPanel extends Component {
       .then((res) => {
         alert("New Event Added");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        if (err.response.status === 415) {
+          alert(err.data.error);
+        } else if (err.response.status === 400) {
+          alert("Missing Parameters");
+        }
+      });
   }
 
   render() {

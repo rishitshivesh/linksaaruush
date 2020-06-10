@@ -5,7 +5,6 @@ import LogInForm from "../../components/LogInForm/LogInForm";
 
 class Login extends Component {
   login(data) {
-    console.log(data);
     axios
       .post("/api/admin/login", data)
       .then((res) => {
@@ -19,7 +18,13 @@ class Login extends Component {
         setTimeout(() => this.props.onLogout(), forcedLogout);
         alert("NO TRESPASSING!");
       })
-      .catch((err) => console.log(err));
+      .catch((err) => {
+        if (err.response.status === 403) {
+          alert("Invalid Credentials. Please try again.");
+        } else if (err.response.status === 400) {
+          alert(err.data.error);
+        }
+      });
   }
 
   render() {

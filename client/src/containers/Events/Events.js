@@ -26,28 +26,32 @@ class Events extends Component {
         })
         .then((res) => {
           this.setState({ competitions: res.data.data.reverse() });
-        });
+        })
+        .catch((err) => {});
       axios
         .get("/api/certificate/get", {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => {
           this.setState({ certificates: res.data.data.reverse() });
-        });
+        })
+        .catch((err) => {});
       axios
         .get("/api/webinar/get", {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => {
           this.setState({ webinars: res.data.data.reverse() });
-        });
+        })
+        .catch((err) => {});
       axios
         .get("/api/workshop/get", {
           headers: { Authorization: `Bearer ${token}` },
         })
         .then((res) => {
           this.setState({ workshops: res.data.data.reverse() });
-        });
+        })
+        .catch((err) => {});
     }, 500);
   }
 
