@@ -1,0 +1,60 @@
+.competitions h2 {
+  background-color: #feeebd;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+}
+.competitions span {
+  margin-top: 23px;
+  border-top: 5px solid #feeebd;
+  font-size: 24px;
+  padding: 0;
+  width: 100%;
+}
+.certificates h2 {
+  background-color: #ffd3d5;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 700;
+}
+.certificates span {
+  margin-top: 23px;
+  border-top: 5px solid #ffd3d5;
+  font-size: 24px;
+  padding: 0;
+  width: 100%;
+}
+.webinars h2 {
+  background-color: #caecfd;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 700;
+}
+.webinars span {
+  margin-top: 23px;
+  border-top: 5px solid #caecfd;
+  font-size: 24px;
+  padding: 0;
+  width: 100%;
+}
+.workshops h2 {
+  background-color: #cafed7;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 700;
+}
+.workshops span {
+  margin-top: 23px;
+  border-top: 5px solid #cafed7;
+  font-size: 24px;
+  padding: 0;
+  width: 100%;
+}
