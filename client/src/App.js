@@ -6,6 +6,7 @@ import Header from "./components/Header/Header";
 import Events from "./containers/Events/Events";
 import AdminPanel from "./containers/AdminPanel/AdminPanel";
 import LogIn from "./containers/LogIn/LogIn";
+import NotFound from "./components/NotFound/NotFound";
 
 class App extends Component {
   constructor() {
@@ -46,6 +47,7 @@ class App extends Component {
           </Route>
 
           <Route path="/" component={Events} exact />
+          <Route path="*" component={NotFound} exact />
         </Switch>
       </React.Fragment>
     );
@@ -68,6 +70,7 @@ class App extends Component {
             </Route>
 
             <Route path="/" component={Events} exact />
+            <Route path="*" component={NotFound} exact />
           </Switch>
         </React.Fragment>
       );
@@ -76,7 +79,7 @@ class App extends Component {
       <React.Fragment>
         <Header />
         <Switch>
-          <div style={{ position: "relative", minHeight: "100vh" }}>
+          <div style={{ position: "relative", minHeight: "80vh" }}>
             {authRoutes}
           </div>
         </Switch>
