@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Button } from "reactstrap";
 import axios from "axios";
 
 import classes from "./Events.module.css";
@@ -43,13 +44,18 @@ class Events extends Component {
               className={classes.competitions}
             >
               {this.state.competitions.map((competition) => (
-                <Event
-                  key={competition._id}
-                  name={competition.heading}
-                  description={competition.description}
-                  image={competition.imageUrl}
-                  click={competition.link}
-                />
+                <React.Fragment>
+                  <Event
+                    key={competition._id}
+                    name={competition.heading}
+                    description={competition.description}
+                    image={competition.imageUrl}
+                    click={competition.link}
+                  />
+                  {window.location.pathname === "/admin-panel" ? (
+                    <Button>Remove</Button>
+                  ) : null}
+                </React.Fragment>
               ))}
             </Section>
             <Section
@@ -58,13 +64,18 @@ class Events extends Component {
               className={classes.certificates}
             >
               {this.state.certificates.map((certificate) => (
-                <Event
-                  key={certificate._id}
-                  name={certificate.heading}
-                  description={certificate.description}
-                  image={certificate.imageUrl}
-                  click={certificate.link}
-                />
+                <React.Fragment>
+                  <Event
+                    key={certificate._id}
+                    name={certificate.heading}
+                    description={certificate.description}
+                    image={certificate.imageUrl}
+                    click={certificate.link}
+                  />
+                  {window.location.pathname === "/admin-panel" ? (
+                    <Button>Remove</Button>
+                  ) : null}
+                </React.Fragment>
               ))}
             </Section>
           </div>
@@ -75,13 +86,18 @@ class Events extends Component {
               className={classes.webinars}
             >
               {this.state.webinars.map((webinar) => (
-                <Event
-                  key={webinar._id}
-                  name={webinar.heading}
-                  description={webinar.description}
-                  image={webinar.imageUrl}
-                  click={webinar.link}
-                />
+                <React.Fragment>
+                  <Event
+                    key={webinar._id}
+                    name={webinar.heading}
+                    description={webinar.description}
+                    image={webinar.imageUrl}
+                    click={webinar.link}
+                  />
+                  {window.location.pathname === "/admin-panel" ? (
+                    <Button>Remove</Button>
+                  ) : null}
+                </React.Fragment>
               ))}
             </Section>
             <Section
@@ -90,13 +106,18 @@ class Events extends Component {
               className={classes.workshops}
             >
               {this.state.workshops.map((workshop) => (
-                <Event
-                  key={workshop._id}
-                  name={workshop.heading}
-                  description={workshop.description}
-                  image={workshop.imageUrl}
-                  click={workshop.link}
-                />
+                <React.Fragment>
+                  <Event
+                    key={workshop._id}
+                    name={workshop.heading}
+                    description={workshop.description}
+                    image={workshop.imageUrl}
+                    click={workshop.link}
+                  />
+                  {window.location.pathname === "/admin-panel" ? (
+                    <Button>Remove</Button>
+                  ) : null}
+                </React.Fragment>
               ))}
             </Section>
           </div>
