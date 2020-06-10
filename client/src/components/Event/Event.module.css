@@ -6,7 +6,7 @@ a {
   color: #232323;
   transition: all 0.3s ease-out !important;
 }
-a img {
+a .img img {
   border-radius: 10px;
 }
 a h3 {

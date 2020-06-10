@@ -6,7 +6,7 @@ const Event = (props) => {
   return (
     <React.Fragment>
       <a className={"main row mt-3 mb-5"} href={props.click}>
-        <div className="mr-3">
+        <div className="img mr-3">
           <img src={props.image} alt={props.image} width="70px" height="70px" />
         </div>
         <div>
