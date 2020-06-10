@@ -12,7 +12,7 @@ const Header = () => {
             src={aaruushLogo}
             alt="aaruushLogo"
             className="my-3"
-            width={window.innerWidth < 991 ? "300px" : "450px"}
+            style={{ minWidth: "250px", width: "50vw", maxWidth: "350px" }}
           />
         </div>
       </div>

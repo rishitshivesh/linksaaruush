@@ -12,7 +12,7 @@ const Section = (props) => {
             style={{ paddingBottom: "10px", marginRight: "10px" }}
           />
           <h2 style={{ minWidth: "200px" }}>{props.name}</h2>
-          <span className="d-none d-sm-block col-4 col-lg-6"></span>
+          <span className="d-none d-sm-block col-4"></span>
         </div>
         <div className="col-10 mx-auto">{props.children}</div>
       </div>
