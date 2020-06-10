@@ -11,8 +11,10 @@ const Section = (props) => {
             width="40px"
             style={{ paddingBottom: "10px", marginRight: "10px" }}
           />
-          <h2 style={{ minWidth: "200px" }}>{props.name}</h2>
-          <span className="d-none d-sm-block col-4"></span>
+          <h2 className="mx-auto mx-sm-0" style={{ minWidth: "200px" }}>
+            {props.name}
+          </h2>
+          <span className="d-none d-sm-block"></span>
         </div>
         <div className="col-10 mx-auto">{props.children}</div>
       </div>

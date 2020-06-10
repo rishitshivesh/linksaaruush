@@ -47,11 +47,13 @@ const Footer = () => {
               </a>
             </div>
             <div className="mx-3 mx-auto">
-              <img
-                src="https://image.flaticon.com/icons/svg/2111/2111532.svg"
-                alt="aaruush_linkedin"
-                width="30px"
-              />
+              <a href="https://www.linkedin.com/in/aaruush">
+                <img
+                  src="https://image.flaticon.com/icons/svg/2111/2111532.svg"
+                  alt="aaruush_linkedin"
+                  width="30px"
+                />
+              </a>
             </div>
             <div className="mx-3 mx-auto">
               <a href="https://www.youtube.com/channel/UC6mwWpwkZchii-oyWz0v3dw">
