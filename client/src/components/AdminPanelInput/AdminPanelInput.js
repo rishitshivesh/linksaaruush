@@ -16,7 +16,7 @@ const HomePageForm = (props) => {
     },
     validationSchema: Yup.object({
       heading: Yup.string().required("Every Event has a name"),
-      description: Yup.string().required("Its just a one-liner"),
+      description: Yup.string(),
       link: Yup.string().required("We need the redirect for this event"),
       attachment: Yup.mixed()
         .test(
