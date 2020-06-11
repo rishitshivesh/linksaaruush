@@ -5,6 +5,7 @@ import axios from "axios";
 import classes from "./Events.module.css";
 import Event from "../../components/Event/Event";
 import Section from "../../components/Section/Section";
+import aaruush from "../../assets/images/aaruush.svg";
 
 class Events extends Component {
   constructor() {
@@ -59,14 +60,18 @@ class Events extends Component {
     return (
       <React.Fragment>
         <div className="col-11 mx-auto mt-5">
-          <div className="row col-12">
+          <div className="row col-12 mx-auto">
             <Section
               img="https://image.flaticon.com/icons/svg/3022/3022689.svg"
               name="Competitions"
-              className={classes.competitions}
+              className={classes.competitions + " col-12 col-lg-6 mb-4 mb-lg-3"}
             >
               {this.state.competitions.length === 0 ? (
-                <Event name="Coming Soon" description="Stay tuned!" />
+                <Event
+                  name="Coming Soon"
+                  description="Stay tuned!"
+                  image={aaruush}
+                />
               ) : (
                 this.state.competitions.map((competition) => (
                   <React.Fragment>
@@ -96,10 +101,14 @@ class Events extends Component {
             <Section
               img="https://image.flaticon.com/icons/svg/2912/2912780.svg"
               name="Certificates"
-              className={classes.certificates}
+              className={classes.certificates + " col-12 col-lg-6 mb-4 mb-lg-3"}
             >
               {this.state.certificates.length === 0 ? (
-                <Event name="Coming Soon" description="Stay tuned!" />
+                <Event
+                  name="Coming Soon"
+                  description="Stay tuned!"
+                  image={aaruush}
+                />
               ) : (
                 this.state.certificates.map((certificate) => (
                   <React.Fragment>
@@ -127,14 +136,18 @@ class Events extends Component {
               )}
             </Section>
           </div>
-          <div className="row col-12">
+          <div className="row col-12 mx-auto">
             <Section
               img="https://image.flaticon.com/icons/svg/3003/3003252.svg"
               name="Webinars"
-              className={classes.webinars}
+              className={classes.webinars + " col-12 col-lg-6 mb-4 mb-lg-3"}
             >
-              {this.state.certificates.length === 0 ? (
-                <Event name="Coming Soon" description="Stay tuned!" />
+              {this.state.webinars.length === 0 ? (
+                <Event
+                  name="Coming Soon"
+                  description="Stay tuned!"
+                  image={aaruush}
+                />
               ) : (
                 this.state.webinars.map((webinar) => (
                   <React.Fragment>
@@ -162,10 +175,14 @@ class Events extends Component {
             <Section
               img="https://image.flaticon.com/icons/svg/3003/3003246.svg"
               name="Workshops"
-              className={classes.workshops}
+              className={classes.workshops + " col-12 col-lg-6 mb-4 mb-lg-3"}
             >
-              {this.state.certificates.length === 0 ? (
-                <Event name="Coming Soon" description="Stay tuned!" />
+              {this.state.workshops.length === 0 ? (
+                <Event
+                  name="Coming Soon"
+                  description="Stay tuned!"
+                  image={aaruush}
+                />
               ) : (
                 this.state.workshops.map((workshop) => (
                   <React.Fragment>

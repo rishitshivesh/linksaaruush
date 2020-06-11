@@ -3,7 +3,7 @@ import React from "react";
 const Section = (props) => {
   return (
     <React.Fragment>
-      <div className={props.className + " col-12 col-lg-6 mb-4 mb-lg-3"}>
+      <div className={props.className}>
         <div className="row">
           <img
             src={props.img}
@@ -16,7 +16,7 @@ const Section = (props) => {
           </h2>
           <span className="d-none d-sm-block"></span>
         </div>
-        <div className="col-10 mx-auto">{props.children}</div>
+        <div>{props.children}</div>
       </div>
     </React.Fragment>
   );

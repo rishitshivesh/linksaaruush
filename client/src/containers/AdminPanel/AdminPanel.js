@@ -17,6 +17,7 @@ class AdminPanel extends Component {
       )
       .then((res) => {
         alert("Event deleted");
+        window.location.reload();
       })
       .catch((err) => {
         if (err.response.status === 403) {
