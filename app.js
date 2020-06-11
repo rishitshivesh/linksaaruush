@@ -29,7 +29,7 @@ app.use("/api", linkRoutes);
 app.use("/api/admin", adminRoutes);
 
 if (process.env.NODE_ENV === "production") {
-  express.static(path.join(__dirname, "client", "build"));
+  app.use(express.static(path.join(__dirname, "client", "build")));
   app.use("/*", (req, res) => {
     res.sendFile(path.join(__dirname, "client", "build", "index.html"));
   });
