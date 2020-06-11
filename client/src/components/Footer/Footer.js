@@ -11,7 +11,11 @@ const Footer = () => {
           <div className="col-4 d-none d-lg-block"></div>
           <div className="row my-5 mx-auto col-12 col-sm-9 col-lg-4">
             <div className="mx-3 mx-auto">
-              <a href="http://aaruush.org/">
+              <a
+                href="http://aaruush.org/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src="https://image.flaticon.com/icons/svg/2301/2301129.svg"
                   alt="aaruush.org"
@@ -20,7 +24,11 @@ const Footer = () => {
               </a>
             </div>
             <div className="mx-3 mx-auto">
-              <a href="https://www.instagram.com/aaruush_srm/">
+              <a
+                href="https://www.instagram.com/aaruush_srm/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src="https://image.flaticon.com/icons/svg/1384/1384031.svg"
                   alt="aaruush_instagram"
@@ -29,7 +37,11 @@ const Footer = () => {
               </a>
             </div>
             <div className="mx-3 mx-auto">
-              <a href="https://www.facebook.com/aaruush.srm/">
+              <a
+                href="https://www.facebook.com/aaruush.srm/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src="https://image.flaticon.com/icons/svg/733/733605.svg"
                   alt="aaruush_facebook"
@@ -38,7 +50,11 @@ const Footer = () => {
               </a>
             </div>
             <div className="mx-3 mx-auto">
-              <a href="https://twitter.com/aaruushsrmist?lang=en">
+              <a
+                href="https://twitter.com/aaruushsrmist?lang=en"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src="https://image.flaticon.com/icons/svg/733/733635.svg"
                   alt="aaruush_twitter"
@@ -47,7 +63,11 @@ const Footer = () => {
               </a>
             </div>
             <div className="mx-3 mx-auto">
-              <a href="https://www.linkedin.com/in/aaruush">
+              <a
+                href="https://www.linkedin.com/in/aaruush"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src="https://image.flaticon.com/icons/svg/2111/2111532.svg"
                   alt="aaruush_linkedin"
@@ -56,7 +76,11 @@ const Footer = () => {
               </a>
             </div>
             <div className="mx-3 mx-auto">
-              <a href="https://www.youtube.com/channel/UC6mwWpwkZchii-oyWz0v3dw">
+              <a
+                href="https://www.youtube.com/channel/UC6mwWpwkZchii-oyWz0v3dw"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <img
                   src="https://image.flaticon.com/icons/svg/1384/1384028.svg"
                   alt="aaruush_youtube"
@@ -66,7 +90,13 @@ const Footer = () => {
             </div>
           </div>
           <div className="mb-5 my-lg-5 col-12 col-lg-4 mx-auto text-center text-lg-right">
-            <img src={teamEnvisionLogo} alt="" width="250px" />
+            <a
+              href="https://team-envision.github.io/"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <img src={teamEnvisionLogo} alt="" width="250px" />
+            </a>
           </div>
         </div>
       </footer>

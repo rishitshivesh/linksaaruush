@@ -13,6 +13,7 @@ class App extends Component {
     super();
     this.state = {
       isAuth: false,
+      toAdminLogin: 0,
     };
   }
   componentWillMount() {
@@ -83,7 +84,19 @@ class App extends Component {
     }
     return (
       <React.Fragment>
-        <Header />
+        <Header
+          aaruushLogoClicked={() => {
+            if (window.location.pathname === "/") {
+              this.setState({ toAdminLogin: this.state.toAdminLogin + 1 });
+              if (this.state.toAdminLogin !== 0) {
+                setTimeout(() => this.setState({ toAdminLogin: 0 }), 1500);
+              }
+              if (this.state.toAdminLogin === 5) {
+                window.location.pathname = "/admin/login";
+              }
+            }
+          }}
+        />
         <Switch>
           <div style={{ position: "relative", minHeight: "100vh" }}>
             {authRoutes}

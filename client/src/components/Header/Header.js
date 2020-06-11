@@ -3,7 +3,7 @@ import React from "react";
 import classes from "./Header.module.css";
 import aaruushLogo from "../../assets/images/aaruush_logo.png";
 
-const Header = () => {
+const Header = (props) => {
   return (
     <React.Fragment>
       <div className={classes.main + " col-12"}>
@@ -13,6 +13,7 @@ const Header = () => {
             alt="aaruushLogo"
             className="my-3"
             style={{ minWidth: "250px", width: "50vw", maxWidth: "350px" }}
+            onClick={props.aaruushLogoClicked}
           />
         </div>
       </div>
