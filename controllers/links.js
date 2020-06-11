@@ -121,14 +121,10 @@ const getLinks = async (req, res, next) => {
         ? await certificateModel.find()
         : await competitionModel.find();
 
-    if (!result.length) {
-      throw new ErrorHandler(404, "No Links");
-    } else {
-      res.status(200).json({
-        status: "OK",
-        data: result,
-      });
-    }
+    res.status(200).json({
+      status: "OK",
+      data: result,
+    });
   } catch (error) {
     if (error instanceof ErrorHandler) {
       next(error);
