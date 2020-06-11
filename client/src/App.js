@@ -24,6 +24,8 @@ class App extends Component {
         this.setState({ isAuth: true });
       } else {
         this.setState({ isAuth: false });
+        localStorage.removeItem("authToken");
+        localStorage.removeItem("authTokenExpiration");
       }
     }
   }
@@ -42,6 +44,8 @@ class App extends Component {
               onLogout={() => {
                 alert("Session Timeout");
                 this.setState({ isAuth: false });
+                localStorage.removeItem("authToken");
+                localStorage.removeItem("authTokenExpiration");
               }}
             />
           </Route>
@@ -63,6 +67,8 @@ class App extends Component {
             <Route path="/admin/panel" exact>
               <AdminPanel
                 onLogout={() => {
+                  localStorage.removeItem("authToken");
+                  localStorage.removeItem("authTokenExpiration");
                   alert("You are about to be logged out");
                   this.setState({ isAuth: false });
                 }}

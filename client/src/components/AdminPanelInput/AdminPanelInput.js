@@ -111,12 +111,7 @@ const HomePageForm = (props) => {
                 label="Event Poster"
                 style={{ marginLeft: "0px" }}
                 onChange={(event) => {
-                  if (event.target.files[0]) {
-                    formik.setFieldValue("isAttached", true);
-                    formik.setFieldValue("attachment", event.target.files[0]);
-                  } else {
-                    formik.setFieldValue("isAttached", false);
-                  }
+                  formik.setFieldValue("attachment", event.target.files[0]);
                 }}
               />
 
