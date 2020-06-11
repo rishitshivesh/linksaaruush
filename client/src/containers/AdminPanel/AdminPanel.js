@@ -4,8 +4,16 @@ import { createBrowserHistory } from "history";
 
 import AdminEvents from "../Events/Events";
 import AdminPanelInput from "../../components/AdminPanelInput/AdminPanelInput";
+import Spinner from "../../components/Spinner/Spinner";
 
 class AdminPanel extends Component {
+  constructor() {
+    super();
+    this.state = {
+      isLoading: false,
+    };
+  }
+
   deleteEvent(id, linktype) {
     let history = createBrowserHistory();
     let token = localStorage.getItem("authToken");
@@ -17,6 +25,7 @@ class AdminPanel extends Component {
       )
       .then((res) => {
         alert("Event deleted");
+        this.setState({ isLoading: false });
         window.location.reload();
       })
       .catch((err) => {
@@ -31,6 +40,7 @@ class AdminPanel extends Component {
         } else if (err.response.status === 404) {
           alert("Link Not Found");
         }
+        this.setState({ isLoading: false });
       });
   }
 
@@ -48,6 +58,7 @@ class AdminPanel extends Component {
       })
       .then((res) => {
         alert("New Event Added");
+        this.setState({ isLoading: false });
       })
       .catch((err) => {
         if (err.response.status === 415) {
@@ -55,6 +66,7 @@ class AdminPanel extends Component {
         } else if (err.response.status === 400) {
           alert("Missing Parameters");
         }
+        this.setState({ isLoading: false });
       });
   }
 
@@ -62,14 +74,30 @@ class AdminPanel extends Component {
     return (
       <React.Fragment>
         <AdminPanelInput
-          onSubmitForm={(values) => this.addEvent(values)}
+          onSubmitForm={(values) => {
+            this.setState({ isLoading: true });
+            this.addEvent(values);
+          }}
           logoutClicked={this.props.onLogout}
         />
+        {this.state.isLoading ? <Spinner /> : null}
         <AdminEvents
-          competitionRemove={(id) => this.deleteEvent(id, "competition")}
-          certificateRemove={(id) => this.deleteEvent(id, "certificate")}
-          webinarRemove={(id) => this.deleteEvent(id, "webinar")}
-          workshopRemove={(id) => this.deleteEvent(id, "workshop")}
+          competitionRemove={(id) => {
+            this.setState({ isLoading: true });
+            this.deleteEvent(id, "competition");
+          }}
+          certificateRemove={(id) => {
+            this.setState({ isLoading: true });
+            this.deleteEvent(id, "certificate");
+          }}
+          webinarRemove={(id) => {
+            this.setState({ isLoading: true });
+            this.deleteEvent(id, "webinar");
+          }}
+          workshopRemove={(id) => {
+            this.setState({ isLoading: true });
+            this.deleteEvent(id, "workshop");
+          }}
         />
       </React.Fragment>
     );
