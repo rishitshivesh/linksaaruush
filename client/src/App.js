@@ -79,7 +79,7 @@ class App extends Component {
       <React.Fragment>
         <Header />
         <Switch>
-          <div style={{ position: "relative", minHeight: "80vh" }}>
+          <div style={{ position: "relative", minHeight: "100vh" }}>
             {authRoutes}
           </div>
         </Switch>
