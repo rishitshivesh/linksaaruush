@@ -59,6 +59,7 @@ class AdminPanel extends Component {
       .then((res) => {
         alert("New Event Added");
         this.setState({ isLoading: false });
+        window.location.reload();
       })
       .catch((err) => {
         if (err.response.status === 415) {
