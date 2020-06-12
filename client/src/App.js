@@ -1,12 +1,15 @@
-import React, { Component } from "react";
+import React, { Component, Suspense } from "react";
 import { Route, Switch, Redirect } from "react-router-dom";
 
 import "./App.css";
 import Header from "./components/Header/Header";
 import Events from "./containers/Events/Events";
-import AdminPanel from "./containers/AdminPanel/AdminPanel";
-import LogIn from "./containers/LogIn/LogIn";
-import NotFound from "./components/NotFound/NotFound";
+import Spinner from "./components/Spinner/Spinner";
+const AdminPanel = React.lazy(() =>
+  import("./containers/AdminPanel/AdminPanel")
+);
+const LogIn = React.lazy(() => import("./containers/LogIn/LogIn"));
+const NotFound = React.lazy(() => import("./components/NotFound/NotFound"));
 
 class App extends Component {
   constructor() {
@@ -27,79 +30,79 @@ class App extends Component {
         this.setState({ isAuth: false });
         localStorage.removeItem("authToken");
         localStorage.removeItem("authTokenExpiration");
+        alert("Session Timeout. Login again.");
       }
     }
   }
 
   render() {
-    let authRoutes = (
-      <React.Fragment>
-        <Switch>
-          <Route path="/admin/panel" exact>
-            <Redirect to="/admin/login" />
-          </Route>
+    const aaruushLogoClicked = () => {
+      if (window.location.pathname === "/") {
+        this.setState({ toAdminLogin: this.state.toAdminLogin + 1 });
+        if (this.state.toAdminLogin !== 0) {
+          setTimeout(() => this.setState({ toAdminLogin: 0 }), 1500);
+        }
+        if (this.state.toAdminLogin === 5) {
+          window.location.pathname = "/admin/login";
+        }
+      }
+    };
 
-          <Route path="/admin/login" exact>
-            <LogIn
-              afterLogin={() => this.setState({ isAuth: true })}
-              onLogout={() => {
-                alert("Session Timeout");
-                this.setState({ isAuth: false });
-                localStorage.removeItem("authToken");
-                localStorage.removeItem("authTokenExpiration");
-              }}
-            />
-          </Route>
+    const onLogout = () => {
+      localStorage.removeItem("authToken");
+      localStorage.removeItem("authTokenExpiration");
+      alert("You are about to be logged out");
+      this.setState({ isAuth: false });
+    };
 
-          <Route path="/" component={Events} exact />
-          <Route path="*" component={NotFound} exact />
-        </Switch>
-      </React.Fragment>
-    );
-
-    if (this.state.isAuth) {
-      authRoutes = (
-        <React.Fragment>
-          <Switch>
-            <Route path="/admin/login" exact>
-              <Redirect to="/admin/panel" />
-            </Route>
-
-            <Route path="/admin/panel" exact>
-              <AdminPanel
-                onLogout={() => {
-                  localStorage.removeItem("authToken");
-                  localStorage.removeItem("authTokenExpiration");
-                  alert("You are about to be logged out");
-                  this.setState({ isAuth: false });
-                }}
-              />
-            </Route>
-
-            <Route path="/" component={Events} exact />
-            <Route path="*" component={NotFound} exact />
-          </Switch>
-        </React.Fragment>
-      );
-    }
     return (
       <React.Fragment>
-        <Header
-          aaruushLogoClicked={() => {
-            if (window.location.pathname === "/") {
-              this.setState({ toAdminLogin: this.state.toAdminLogin + 1 });
-              if (this.state.toAdminLogin !== 0) {
-                setTimeout(() => this.setState({ toAdminLogin: 0 }), 1500);
-              }
-              if (this.state.toAdminLogin === 5) {
-                window.location.pathname = "/admin/login";
-              }
-            }
-          }}
-        />
+        <Header aaruushLogoClicked={() => aaruushLogoClicked()} />
         <Switch>
           <div style={{ position: "relative", minHeight: "100vh" }}>
-            {authRoutes}
+            <React.Fragment>
+              <Switch>
+                <Route
+                  path="/admin/panel"
+                  render={() => (
+                    <Suspense fallback={<Spinner />}>
+                      {!this.state.isAuth ? (
+                        <Redirect to="/admin/login" />
+                      ) : (
+                        <AdminPanel onLogout={() => onLogout()} />
+                      )}
+                    </Suspense>
+                  )}
+                />
+
+                <Route
+                  path="/admin/login"
+                  render={() => (
+                    <Suspense fallback={<Spinner />}>
+                      {!this.state.isAuth ? (
+                        <LogIn
+                          afterLogin={() => this.setState({ isAuth: true })}
+                          onLogout={() => onLogout()}
+                        />
+                      ) : (
+                        <Redirect to="/admin/panel" />
+                      )}
+                    </Suspense>
+                  )}
+                />
+
+                <Route path="/" component={Events} exact />
+
+                <Route
+                  path="*"
+                  render={() => (
+                    <Suspense fallback={<Spinner />}>
+                      <NotFound />
+                    </Suspense>
+                  )}
+                />
+              </Switch>
+            </React.Fragment>
           </div>
         </Switch>
       </React.Fragment>
