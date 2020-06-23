@@ -2,6 +2,7 @@ import React from "react";
 
 import classes from "./Footer.module.css";
 import teamEnvisionLogo from "../../assets/images/teamEnvision_logo.png";
+import blog from "../../assets/images/blog.png";
 
 const Footer = () => {
   return (
@@ -86,6 +87,15 @@ const Footer = () => {
                   alt="aaruush_youtube"
                   width="40px"
                 />
+              </a>
+            </div>
+            <div className="mx-3 mx-auto">
+              <a
+                href="https://aaruushblog.wordpress.com/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <img src={blog} alt="aaruush_blog" width="32px" />
               </a>
             </div>
           </div>

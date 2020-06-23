@@ -12,13 +12,11 @@ const LogIn = React.lazy(() => import("./containers/LogIn/LogIn"));
 const NotFound = React.lazy(() => import("./components/NotFound/NotFound"));
 
 class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      isAuth: false,
-      toAdminLogin: 0,
-    };
-  }
+  state = {
+    isAuth: false,
+    toAdminLogin: 0,
+  };
+
   componentWillMount() {
     let expirationTime = localStorage.getItem("authTokenExpiration");
     let currentTime = new Date().getTime();
@@ -57,7 +55,7 @@ class App extends Component {
 
     return (
       <React.Fragment>
-        <Header aaruushLogoClicked={() => aaruushLogoClicked()} />
+        <Header aaruushLogoClicked={aaruushLogoClicked} />
         <Switch>
           <div style={{ position: "relative", minHeight: "100vh" }}>
             <React.Fragment>
