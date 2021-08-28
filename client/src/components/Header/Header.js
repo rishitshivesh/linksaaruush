@@ -1,7 +1,7 @@
 import React from "react";
 
 import classes from "./Header.module.css";
-import aaruushLogo from "../../assets/images/aaruush_logo.png";
+import aaruushLogo from "../../assets/images/aaruush'21_logo.png";
 
 const Header = (props) => {
   return (

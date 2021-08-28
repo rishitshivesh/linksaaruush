@@ -42,11 +42,15 @@ if (process.env.NODE_ENV === "production") {
 app.use(handleErrors);
 
 mongoose
-  .connect(process.env.MONGO_URI)
+  .connect(process.env.MONGO_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
   .then((result) => {
     console.log("Connected To MongoDB");
-    app.listen(process.env.PORT, () => {
-      console.log(`Server Listening on Port ${process.env.PORT}`);
+    const port = process.env.PORT ? process.env.PORT : 4200;
+    app.listen(port, () => {
+      console.log(`Server Listening on Port ${port}`);
     });
   })
   .catch((err) => console.log(err));
