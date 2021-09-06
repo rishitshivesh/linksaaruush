@@ -21,7 +21,7 @@ jobs:
     - run: npm i
     - run: npm run build
     - run: |
-        pm2 stop 1
-        pm2 start 1
+        pm2 stop 6
+        pm2 start 6
         pm2 save
         sudo service nginx restart
