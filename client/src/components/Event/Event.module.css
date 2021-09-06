@@ -23,3 +23,46 @@ a:hover h3 {
   transition: all 0.3s ease-out !important;
   letter-spacing: 1.1px;
 }
+
+.event_main{
+  display: flex;
+  margin-top:1vh;
+  margin-left:1vh;
+}
+
+
+.event_main:hover {
+  cursor: pointer;
+}
+
+.events_div{
+  margin-bottom:10vh;
+
+}
+
+
+.event_a {
+  color: #232323;
+  transition: all 0.3s ease-out !important;
+}
+
+.event_a h3 {
+  font-size: 28px;
+  font-weight: 700;
+}
+.event_a p {
+  font-size: 16px;
+}
+
+.event_a:hover {
+  color: #232323;
+  text-decoration: none;
+}
+.event_a:hover h3 {
+  transition: all 0.3s ease-out !important;
+  letter-spacing: 1.1px;
+}
+.event_a:hover p {
+  transition: all 0.3s ease-out !important;
+  letter-spacing: 1px;
+}

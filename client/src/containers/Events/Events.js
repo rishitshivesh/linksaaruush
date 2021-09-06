@@ -6,7 +6,7 @@ import classes from "./Events.module.css";
 import Event from "../../components/Event/Event";
 import Section from "../../components/Section/Section";
 import aaruush from "../../assets/images/aaruush.svg";
-
+import Nasa from "../../components/Event/nasa";
 class Events extends Component {
   constructor() {
     super();
@@ -139,11 +139,11 @@ class Events extends Component {
           <div className="row col-12 mx-auto">
             <Section
               img="https://image.flaticon.com/icons/svg/3022/3022689.svg"
-              name="Competitions"
+              name="Challenges"
               className={classes.competitions + " col-12 col-lg-6 mb-4 mb-lg-3"}
             >
               {this.state.competitions.length === 0 ? (
-                <Event
+                 <Event
                   name="Coming Soon"
                   description="Stay tuned!"
                   image={aaruush}
@@ -151,6 +151,7 @@ class Events extends Component {
               ) : (
                 this.state.competitions.map((competition) => (
                   <React.Fragment>
+                  <Nasa />
                     <Event
                       key={competition._id}
                       name={competition.heading}
