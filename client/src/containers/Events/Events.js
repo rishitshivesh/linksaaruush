@@ -149,9 +149,11 @@ class Events extends Component {
                   image={aaruush}
                 />
               ) : (
+                <>
+                  <Nasa />
+                  {
                 this.state.competitions.map((competition) => (
                   <React.Fragment>
-                  <Nasa />
                     <Event
                       key={competition._id}
                       name={competition.heading}
@@ -173,6 +175,8 @@ class Events extends Component {
                     ) : null}
                   </React.Fragment>
                 ))
+                  }
+                </>
               )}
             </Section>
             <Section
