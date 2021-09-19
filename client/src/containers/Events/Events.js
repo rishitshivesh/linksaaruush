@@ -31,7 +31,7 @@ class Events extends Component {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
-        this.setState({ competitions: res.data.data.reverse() });
+        this.setState({ competitions: res.data.data });
       })
       .catch((err) => {});
     axios
@@ -39,7 +39,7 @@ class Events extends Component {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
-        this.setState({ certificates: res.data.data.reverse() });
+        this.setState({ certificates: res.data.data });
       })
       .catch((err) => {});
     axios
@@ -47,7 +47,7 @@ class Events extends Component {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
-        this.setState({ webinars: res.data.data.reverse() });
+        this.setState({ webinars: res.data.data });
       })
       .catch((err) => {});
     axios
@@ -55,7 +55,7 @@ class Events extends Component {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((res) => {
-        this.setState({ workshops: res.data.data.reverse() });
+        this.setState({ workshops: res.data.data });
       })
       .catch((err) => {});
   }
@@ -144,7 +144,7 @@ class Events extends Component {
               className={classes.competitions + " col-12 col-lg-6 mb-4 mb-lg-3"}
             >
               {this.state.competitions.length === 0 ? (
-                 <Event
+                <Event
                   name="Coming Soon"
                   description="Stay tuned!"
                   image={aaruush}
@@ -152,31 +152,29 @@ class Events extends Component {
               ) : (
                 <>
                   <Nasa />
-                  {
-                this.state.competitions.map((competition) => (
-                  <React.Fragment>
-                    <Event
-                      key={competition._id}
-                      name={competition.heading}
-                      description={competition.description}
-                      image={competition.imageUrl}
-                      click={competition.link}
-                    />
-                    {window.location.pathname === "/admin/panel" ? (
-                      <Button
-                        className="col-12 mb-4"
-                        color="danger"
-                        outline
-                        onClick={() =>
-                          this.props.competitionRemove(competition._id)
-                        }
-                      >
-                        Remove
-                      </Button>
-                    ) : null}
-                  </React.Fragment>
-                ))
-                  }
+                  {this.state.competitions.map((competition) => (
+                    <React.Fragment>
+                      <Event
+                        key={competition._id}
+                        name={competition.heading}
+                        description={competition.description}
+                        image={competition.imageUrl}
+                        click={competition.link}
+                      />
+                      {window.location.pathname === "/admin/panel" ? (
+                        <Button
+                          className="col-12 mb-4"
+                          color="danger"
+                          outline
+                          onClick={() =>
+                            this.props.competitionRemove(competition._id)
+                          }
+                        >
+                          Remove
+                        </Button>
+                      ) : null}
+                    </React.Fragment>
+                  ))}
                 </>
               )}
             </Section>
