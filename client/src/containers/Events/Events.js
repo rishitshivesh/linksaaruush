@@ -7,6 +7,7 @@ import Event from "../../components/Event/Event";
 import Section from "../../components/Section/Section";
 import aaruush from "../../assets/images/aaruush.svg";
 import Nasa from "../../components/Event/nasa";
+import socialmedia from "../../assets/images/social-media.png";
 class Events extends Component {
   constructor() {
     super();
@@ -179,9 +180,10 @@ class Events extends Component {
                 </>
               )}
             </Section>
+            {/* "https://image.flaticon.com/icons/svg/2912/2912780.svg" */}
             <Section
-              img="https://image.flaticon.com/icons/svg/2912/2912780.svg"
-              name="Certificates"
+              img={socialmedia}
+              name="Aaruush Socials"
               className={classes.certificates + " col-12 col-lg-6 mb-4 mb-lg-3"}
             >
               {this.state.certificates.length === 0 ? (

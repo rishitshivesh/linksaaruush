@@ -8,7 +8,7 @@ const Section = (props) => {
           <img
             src={props.img}
             alt={props.name}
-            width="40px"
+            width="45px"
             style={{ paddingBottom: "10px", marginRight: "10px" }}
           />
           <h2 className="mx-auto mx-sm-0" style={{ minWidth: "200px" }}>

@@ -24,22 +24,25 @@ a:hover h3 {
   letter-spacing: 1.1px;
 }
 
-.event_main{
+.event_main {
   display: flex;
-  margin-top:1vh;
-  margin-left:1vh;
+  margin-top: 1vh;
+  margin-left: 1vh;
 }
 
+@media only screen and (max-width: 900px) {
+  .event_main {
+    flex-direction: column;
+  }
+}
 
 .event_main:hover {
   cursor: pointer;
 }
 
-.events_div{
-  margin-bottom:10vh;
-
+.events_div {
+  margin-bottom: 10vh;
 }
-
 
 .event_a {
   color: #232323;

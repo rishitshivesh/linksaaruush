@@ -22,7 +22,7 @@ const Nasa = (props) => {
         </div>
       </a> */}
 
-      <div class="event_main mx-auto col-12 row mt-3 mb-5" className={style.event_main}>
+      <div class="main nasa mx-auto col-12 row mt-3 mb-5" className={style.event_main}>
         <div class="img text-md-right text-center col-md-3 col-12">
           <img
             style={{borderRadius: "10px"}}
