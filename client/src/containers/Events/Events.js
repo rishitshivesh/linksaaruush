@@ -7,7 +7,11 @@ import Event from "../../components/Event/Event";
 import Section from "../../components/Section/Section";
 import aaruush from "../../assets/images/aaruush.svg";
 import Nasa from "../../components/Event/nasa";
+import CFA from "../../components/Event/cfa";
+import Cap from "../../components/Event/cap";
 import socialmedia from "../../assets/images/social-media.png";
+import caphead from "../../assets/images/ambassador.png"
+import cfahead from "../../assets/images/online-recruitment.png"
 class Events extends Component {
   constructor() {
     super();
@@ -100,6 +104,20 @@ class Events extends Component {
                   </React.Fragment>
                 ))
               )}
+            </Section>
+            <Section
+              img={cfahead}
+              name="Recruitments"
+              className={classes.cfa + " col-12 col-lg-6 mb-4 mb-lg-3"}
+            >
+              <CFA />
+            </Section>
+            <Section
+              img={caphead}
+              name="Campus Ambassador Program"
+              className={classes.cap + " col-12 col-lg-6 mb-4 mb-lg-3"}
+            >
+              <Cap />
             </Section>
             <Section
               img="https://image.flaticon.com/icons/svg/3003/3003246.svg"

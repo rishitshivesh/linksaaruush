@@ -59,6 +59,25 @@
   text-align: center;
   font-weight: 700;
 }
+.cap h2 {
+  background-color: #a9c4ff;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 700;
+}
+.cfa h2 {
+  background-color: #6DCDD6;
+  border-radius: 25px;
+  padding: 10px 20px;
+  font-size: 24px;
+  text-align: center;
+  font-weight: 700;
+}
+
+
+
 .workshops span {
   margin-top: 23px;
   border-top: 5px solid #cafed7;
@@ -68,3 +87,6 @@
   width: 40%;
   max-width: 100%;
 }
+
+/* #548AFF */
+/* #6DCDD6 */

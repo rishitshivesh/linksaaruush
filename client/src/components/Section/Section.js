@@ -14,7 +14,7 @@ const Section = (props) => {
           <h2 className="mx-auto mx-sm-0" style={{ minWidth: "200px" }}>
             {props.name}
           </h2>
-          <span className="d-none d-sm-block"></span>
+          {/* <span className="d-none d-sm-block"></span> */}
         </div>
         <div>{props.children}</div>
       </div>
