@@ -48,7 +48,7 @@ mongoose
   })
   .then((result) => {
     console.log("Connected To MongoDB");
-    const port = process.env.PORT ? process.env.PORT : 4200;
+    const port = process.env.PORT ? process.env.PORT : 4201;
     app.listen(port, () => {
       console.log(`Server Listening on Port ${port}`);
     });
